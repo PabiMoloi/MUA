@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MUA</string>
+    <string name="home">Home</string>
+    <string name="shop">Shop</string>
+    <string name="brands">Brands</string>
+    <string name="default_product_category">foundation</string>
+</resources>

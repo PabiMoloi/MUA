@@ -1,0 +1,131 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.mua"
+        minSdkVersion 24
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.1.0-rc02"
+        kotlinCompilerVersion '1.5.21'
+        //kotlinCompilerVersion '1.5.21'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+ext {
+    retrofit = "2.9.0"
+    gson = "2.8.6"
+    rx_version = '2.1.1'
+    navigation_ui = "2.3.3"
+    navigation_ui_ktx ="2.3.5"
+    glide = "4.9.0"
+    material = "1.4.0"
+    appcompat = "1.4.0"
+    androidx_core = "1.7.0"
+    constraint_layout = "2.1.2"
+    legacy_support = "1.0.0"
+    lifecycle_extension = "2.2.0"
+    hilt_navigation = "1.0.0"
+    compose_compiler = "1.1.0-rc02"
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:${androidx_core}"
+    implementation "androidx.appcompat:appcompat:${appcompat}"
+    implementation "com.google.android.material:material:${material}"
+    implementation "androidx.constraintlayout:constraintlayout:${constraint_layout}"
+    implementation "androidx.legacy:legacy-support-v4:${legacy_support}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle_extension}"
+    implementation "androidx.navigation:navigation-ui-ktx:${navigation_ui_ktx}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${navigation_ui_ktx}"
+    implementation "androidx.hilt:hilt-navigation-compose:${hilt_navigation}"
+
+    implementation "androidx.compose.compiler:compiler:${compose_compiler}"
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation 'androidx.navigation:navigation-compose:2.4.0-rc01'
+    implementation 'androidx.compose.ui:ui:1.0.5'
+    // Tooling support (Previews, etc.)
+    implementation 'androidx.compose.ui:ui-tooling:1.0.5'
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation 'androidx.compose.foundation:foundation:1.0.5'
+    // Material Design
+    implementation 'androidx.compose.material:material:1.0.5'
+
+    // Accompanist
+    implementation "com.google.accompanist:accompanist-pager:0.19.0" // Pager
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.19.0" // Pager Indicators
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit}"
+    implementation "com.google.code.gson:gson:${gson}"
+    //coil
+    implementation "com.github.skydoves:landscapist-coil:1.4.5"
+
+    //Rx
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_version"
+    //Hilt
+    implementation "com.google.dagger:hilt-android:2.40"
+    kapt "com.google.dagger:hilt-compiler:2.40"
+
+    //Test
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+}
